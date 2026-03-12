@@ -1012,6 +1012,23 @@ const products = {
   p4:{ name:'Ovos Premium — 250g Unidade', price:90, qty:1 },
 };
 const selected = {};
+function copiarCNPJ() {
+  const cnpjTexto = document.getElementById("cnpj-pix").innerText;
+  const btn = document.getElementById("btn-copiar");
+
+  navigator.clipboard.writeText(cnpjTexto).then(() => {
+    const textoOriginal = btn.innerHTML;
+    btn.innerHTML = "✅ Copiado!";
+    btn.style.background = "#4CAF50"; 
+
+    setTimeout(() => {
+      btn.innerHTML = textoOriginal;
+      btn.style.background = "var(--gold)";
+    }, 2000);
+  }).catch(err => {
+    console.error('Erro ao copiar: ', err);
+  });
+}
 let selectedDay = null;
 let selectedTime = null;
 let currentStep = 1;
