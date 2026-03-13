@@ -1058,19 +1058,28 @@ const products = {
 const selected = {};
   
 function copiarPix() {
+
   const cnpjTexto = document.getElementById("pix-chave").innerText;
   const btn = document.getElementById("btn-copiar-pix");
+
   navigator.clipboard.writeText(cnpjTexto).then(() => {
+
     const textoOriginal = btn.innerHTML;
+
     btn.innerHTML = "✅ Copiado!";
     btn.style.background = "#4CAF50";
+
     setTimeout(() => {
       btn.innerHTML = textoOriginal;
-      btn.style.background = "var(--gold)"; 
+      btn.style.background = "var(--gold)";
     }, 2000);
-  }).catch(err => {
-    alert("CNPJ: " + cnpjTexto);
+
+  }).catch(() => {
+
+    alert("Chave Pix: " + cnpjTexto);
+
   });
+
 }
   
 let selectedDay = null;
