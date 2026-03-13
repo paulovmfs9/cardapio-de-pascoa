@@ -1039,26 +1039,30 @@ const selected = {};
   
 function copiarPix() {
 
-  const cnpjTexto = document.getElementById("pix-chave").innerText;
-  const btn = document.getElementById("btn-copiar-pix");
+  const texto = document.getElementById("pix-chave").innerText;
+  const botao = document.getElementById("btn-copiar-pix");
 
-  navigator.clipboard.writeText(cnpjTexto).then(() => {
+  const inputTemp = document.createElement("textarea");
+  inputTemp.value = texto;
 
-    const textoOriginal = btn.innerHTML;
+  document.body.appendChild(inputTemp);
 
-    btn.innerHTML = "✅ Copiado!";
-    btn.style.background = "#4CAF50";
+  inputTemp.select();
+  inputTemp.setSelectionRange(0, 99999);
 
-    setTimeout(() => {
-      btn.innerHTML = textoOriginal;
-      btn.style.background = "var(--gold)";
-    }, 2000);
+  document.execCommand("copy");
 
-  }).catch(() => {
+  document.body.removeChild(inputTemp);
 
-    alert("Chave Pix: " + cnpjTexto);
+  const textoOriginal = botao.innerHTML;
 
-  });
+  botao.innerHTML = "✅ Copiado!";
+  botao.style.background = "#4CAF50";
+
+  setTimeout(() => {
+    botao.innerHTML = textoOriginal;
+    botao.style.background = "#d4af37";
+  }, 2000);
 
 }
   
