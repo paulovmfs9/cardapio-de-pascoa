@@ -1058,7 +1058,7 @@ const products = {
 const selected = {};
   
 function copiarPix() {
-  const cnpjTexto = document.getElementById("cnpj-pix").innerText;
+  const cnpjTexto = document.getElementById("pix-chave").innerText;
   const btn = document.getElementById("btn-copiar");
   navigator.clipboard.writeText(cnpjTexto).then(() => {
     const textoOriginal = btn.innerHTML;
