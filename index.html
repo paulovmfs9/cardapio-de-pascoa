@@ -1068,7 +1068,7 @@ function copiarPix() {
   inputTemp.select();
   inputTemp.setSelectionRange(0, 99999);
 
-  document.execCommand("copy");
+  navigator.clipboard.writeText(texto);
 
   document.body.removeChild(inputTemp);
 
